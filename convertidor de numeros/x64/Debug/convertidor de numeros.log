@@ -1,2 +1,2 @@
 ﻿  Main.cpp
-  convertidor de numeros.vcxproj -> D:\trabajos_ccomp2\convertidor de numeros\x64\Debug\convertidor de numeros.exe
+D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(7,15): error C2082: nueva definición del parámetro formal 'x'
