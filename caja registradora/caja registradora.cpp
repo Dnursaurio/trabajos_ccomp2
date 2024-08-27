@@ -22,5 +22,5 @@ int main()
     float x = 0;
     cout << "ingrese un monto, en caso de ser decimar usar el (.):"<< endl;
     cin >> x;
-    cout << "el valor de x es: "<< x;
+    cout << "el valor de x es: "<< plata(x);
 }
