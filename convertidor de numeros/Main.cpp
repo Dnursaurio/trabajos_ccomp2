@@ -19,6 +19,8 @@ string convertir(unsigned int x)
 	solo devolvia el nombre de los ultimos dos digitos)*/
 	if (x >= 1000)
 	{
+		int unidadmillar = x/10000;
+		int residuomillar = x % 10000;
 		int millar = x / 1000;
 		int masresto = x % 1000;
 
@@ -28,6 +30,11 @@ string convertir(unsigned int x)
 		}
 		else
 		{
+			//parte a corregir con los unos
+			/*if(millar > 20 && millar < 90)
+			{
+				palabra
+			}*/
 			palabra = convertir(millar) + " mil";
 		}
 
@@ -38,7 +45,7 @@ string convertir(unsigned int x)
 		//hago este retorno para evitar que el programa devuelva el nombre de los ultimos dos digitos despues del nombre de los miles
 		return palabra;
 	}
-	//primero añadimos nombres clave (luego los reciclaremos en palabras mas largas)
+	//primero aï¿½adimos nombres clave (luego los reciclaremos en palabras mas largas)
 	//A estos los llamare nombre cambiantes
 	if(x<=20)
 	{
@@ -72,7 +79,7 @@ string convertir(unsigned int x)
 		//calculamos las decenas
 		int decenas = x / 10;
 		int unidades = x % 10;
-		//añadimos los sufijos para las decenas
+		//aï¿½adimos los sufijos para las decenas
 		switch (decenas)
 		{
 			case 2: palabra = (unidades == 0)? "veinte" : "veinti"; break;
