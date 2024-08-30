@@ -1,6 +1,6 @@
 ﻿  Main.cpp
-D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(127,2): error C2065: 'cout': identificador no declarado
-D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(127,51): error C2065: 'endl': identificador no declarado
-D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(129,2): error C2065: 'cin': identificador no declarado
-D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(131,2): error C2065: 'cout': identificador no declarado
-D:\trabajos_ccomp2\convertidor de numeros\Main.cpp(131,21): error C2065: 'endl': identificador no declarado
+  Generando código
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 124 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  convertidor de numeros.vcxproj -> D:\trabajos_ccomp2\convertidor de numeros\Release\convertidor de numeros.exe

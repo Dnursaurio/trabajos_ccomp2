@@ -19,8 +19,6 @@ string convertir(unsigned int x)
 	solo devolvia el nombre de los ultimos dos digitos)*/
 	if (x >= 1000)
 	{
-		int unidadmillar = x/10000;
-		int residuomillar = x % 10000;
 		int millar = x / 1000;
 		int masresto = x % 1000;
 
@@ -30,12 +28,12 @@ string convertir(unsigned int x)
 		}
 		else
 		{
-			//parte a corregir con los unos
-			/*if(millar > 20 && millar < 90)
-			{
-				palabra
-			}*/
 			palabra = convertir(millar) + " mil";
+			//añadimos la logica para el caso de los "un mil"
+			if (palabra.find("uno mil") != string::npos)
+			{
+				palabra.replace(palabra.find("uno mil"),7,"un mil");
+			}
 		}
 
 		if (masresto != 0)
@@ -52,7 +50,7 @@ string convertir(unsigned int x)
 		//casos menosres de veinte (los mas cambiantes)
 		switch (x)
 		{
-			case 1:palabra = "uno";break;
+			case 1:palabra = "uno"; break;
 			case 2:palabra = "dos";break;
 			case 3:palabra = "tres";break;
 			case 4:palabra = "cuatro";break;
@@ -91,7 +89,7 @@ string convertir(unsigned int x)
 			case 8: palabra = "ochenta"; break;
 			case 9: palabra = "noventa"; break;
 		}
-		if (decenas == 2 && unidades != 0)
+		if (decenas == 2 && (unidades != 0))
 		{
 			palabra += convertir(unidades);
 		}
