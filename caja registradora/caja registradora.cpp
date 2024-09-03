@@ -49,7 +49,7 @@ void plata(long double monto)
     //Impresion sobra
     if (centimos % 10 > 0)
     {
-        cout << "Lamentamos decirle que le sobran: S:/0." << *sobra<< " y las monedas de 0.5 y 0.1 centimos ya no son vigentes" << endl;
+        cout << "Lamentamos decirle que le sobran: S:/0.0" << *sobra<< " y las monedas de 0.05 y 0.01 centimos ya no son vigentes" << endl;
     }
 }
 
