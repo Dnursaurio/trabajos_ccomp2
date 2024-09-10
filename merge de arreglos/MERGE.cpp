@@ -30,10 +30,18 @@ int main()
 	int A[10] = { 2,6,8,12,20,1,3,7,11,15 };
 	int *p = A;
 	int *q = A + 5;
-	Merge(p, q, A);
+	cout<<"el arreglo original es: ";
 	for (int i = 0; i < 10; i++)
 	{
 		cout << A[i] << " ";
 	}
+	Merge(p, q, A);
+	cout<<endl;
+	cout <<"el arreglo con MERGE es: ";
+	for (int i = 0; i < 10; i++)
+	{
+		cout << A[i] << " ";
+	}
+	cout<<endl;
 	return 0;
 }
