@@ -78,5 +78,6 @@ int main()
 	cout << "el array con SPLIT es: ";
 	Split(p,x,A);
 	print(p,A);
+
 	return 0;
 }
