@@ -40,22 +40,12 @@ void Split(int *ini, int *fin, int A[10])
 		}
 		ini++;
 	}	
-	int *j = A;
-	int *h = A + 4;
-	while (*j > *h && (*j%2 == 0 && *h%2==0))
-	{
-		int temp = *h;
-		*h = *j;
-		*j = temp;
-		j++;
-		h--;
-	}
 }
 //funcion principal
 
 void  print(int * i, int A[10])
 {
-	for (int* i = A; i < A + 10; i++)
+	for (int *i = A; i < A + 10; i++)
 	{
 		cout << *i << " ";
 	}
