@@ -2,30 +2,27 @@
 #include <iostream>
 using namespace std;
 //funcion merge
-void Merge(int *p,int *q,int A[10])
+void Merge(int *p,int *q)
 {
-	while (p<q && q<A+10)
+	int *fin = q + (q - p);
+
+	while(p<q && q<fin)
 	{
-		if (*p>*q)
+		if(*p > *q)
 		{
-			//guardamos el valor de q
 			int temp = *q;
-			//hacemos el desplazamiento de manera que [(aqui iria el 1),2,6,...,20,3,..,15]
-			for (int * r =	q;  r > p; --r)
+			for(int* r = q; r>p; r--)
 			{
-				*r = *(r - 1);
+				*r = *(r-1);
 			}
-			//colocamos el valor de q en el lugar donde esta el valor de p
 			*p = temp;
-			//avanzamos el puntero q
 			q++;
 		}
-		else
-			p++;
+		p++;
 	}
 }
 
-void Split(int* ini, int* fin, int A[10])
+void Split(int *ini, int *fin, int A[10])
 {
 	//1. chequeamos si el nro al inicio es menor que el del final
 	while (ini < fin)
@@ -69,11 +66,11 @@ int main()
 	int A[10] = { 2,6,8,12,20,1,3,7,11,15 };
 	int *p = A;
 	int *q = A + 5;
-	int* x = A + 9;
+	int *x = A + 9;
 	cout << "el array original es: ";
 	print(p, A);
 	cout << "el array con MERGE es: ";
-	Merge(p, q, A);
+	Merge(p, q);
 	print(p, A);
 	cout << "el array con SPLIT es: ";
 	Split(p,x,A);
