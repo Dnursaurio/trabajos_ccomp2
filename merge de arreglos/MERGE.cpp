@@ -28,7 +28,7 @@ void Split(int *ini, int *fin)
 	//acomodamos el final donde debe de ser
 	int *finaltrue = (fin + (fin - ini));//aqui esta fuera del array
 	finaltrue--;//ahora esta al final del arreglo
-	while (*ini % 2 != 0)
+	while (ini < fin)
 	{
 		if (*ini % 2 != 0)
 		{
@@ -39,29 +39,10 @@ void Split(int *ini, int *fin)
 			}
 			*finaltrue = temp;
 		}
-		ini++;
-	}
-	//ordenamos la ultima parte del array para que quede como el array original
-	while (*fin < *finaltrue)
-	{
-		fin++;//11
-		int temp = *finaltrue;
-		for (int *f = finaltrue; f > fin; f--)
+		else
 		{
-			*f = *(f-1);
+			ini++;
 		}
-		*fin = temp;//7
-		fin--;//3
-		finaltrue--;//1
-	}
-	if (*fin > *finaltrue)
-	{
-		int temp2 = *finaltrue;
-		for (int* i = finaltrue; i > fin; i--)
-		{
-			*i = *(i - 1);
-		}
-		*fin = temp2;
 	}
 }
 //funcion principal
