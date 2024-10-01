@@ -12,34 +12,16 @@ void print(int*p, int A[9])
 
 void cocktail(int *&ini, int *&fin)
 {
-	while (ini < fin)
+	for (int *ptrrec = ini+1; ptrrec < fin;ptrrec++)
 	{
-		if (*ini > *fin)
+		if (*ini > *ptrrec)
 		{
 			int temp = *ini;
-			for (int* r = ini; r < fin; r++)
-			{
-				*r = *(r + 1);
-			}
-			*fin = temp;
-			fin--;
+			*ini = *ptrrec;
+			*ptrrec = temp;
 		}
-		if (*ini < *fin)
-		{
-			ini++;
-		}
-	}
-	//esto es para arrelgar el 2 lo anterior ordena casi todo
-	int *inicio2 = ini - 4;
-	int *final2 = fin - 2;
-	while (*inicio2 > *final2)
-	{
-		int tempfinal = *final2;
-		for (int *t = final2; t > inicio2; t--)
-		{
-			*t = *(t - 1);
-		}
-		*inicio2 = tempfinal;
+		ptrrec++;
+		ini++;
 	}
 }
 
