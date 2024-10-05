@@ -12,23 +12,40 @@ void print(int n, int A[])
 
 void cocktail(int *&ini, int *&fin)
 {
-	/*segun geeksforgeeks usa 3 
-	parametros uno que esta al incio del arreglo (ini),
-	uno al final (fin) y uno delante del parametro inicial*/
-	//usamos este parametro para dos tipos de recorrido uno hacia la derecha y otro a la izquierda
-	//el bucle sera mientras la posicion de ini sea < a la de fin
-	while (ini < fin)
+	bool continuar = true;
+	int* inicio = ini;
+	int* final = fin;
+	while (inicio < final)
 	{
-		//hacemos el recorrido hacia la derecha
-		for (int *extra = ini + 1; extra <= fin; extra++) //aseguramos el recorrido
+		continuar = false;
+		for (int* extra = ini + 1; extra <= fin; extra++)
 		{
 			if (*ini > *extra)
 			{
 				swap(*ini,*extra);
+				continuar = true;
 			}
+			ini++;
 		}
-		//retrocedemos el valor del final
-		ini++;
+		if (!continuar)
+		{
+			break;
+		}
+		continuar = false;
+		fin--;
+		for (int*extra2 = fin-1;extra2 >=inicio;extra2--)
+		{
+			if (*extra2 > *fin)
+			{
+				swap(*extra2,*fin);
+				continuar = true;
+			}
+			fin--;
+		}
+		final--;
+		fin = final;
+		inicio++;
+		ini = inicio;
 	}
 }
 
