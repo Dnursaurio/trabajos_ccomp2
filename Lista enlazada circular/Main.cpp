@@ -39,11 +39,10 @@ bool LEC<T>::find(T valor, nodo <T>*& pos)
 	{
 		if (p->valor == valor)
 		{
-			pos = p;
 			return true;
 		}
-		pos = p;
 		p = p->next;
+		pos = p;
 	}while (p != head);
 	return false;
 }
@@ -51,7 +50,7 @@ bool LEC<T>::find(T valor, nodo <T>*& pos)
 template <class T>
 void LEC<T>::add(T valor)
 {
-	nodo <T>* pos = NULL;
+	nodo <T>* pos;
 
 	if (!find(valor, pos))
 	{
@@ -62,17 +61,7 @@ void LEC<T>::add(T valor)
 		}
 		else
 		{
-			if (valor > pos->valor)
-			{
-				pos->next = new nodo<T>(valor, pos);
-			}
-			else
-			{
-				pos = head;
-				nodo<T>* tmp = pos;
-				pos = pos->next;
-				tmp->next = new nodo<T>(valor, pos);
-			}
+			pos->next = new nodo<T>(valor, pos->next);
 		}
 	}
 }
@@ -80,28 +69,21 @@ void LEC<T>::add(T valor)
 template <class T>
 void LEC<T>::del(T valor)
 {
-	nodo<T>* temp = NULL; 
-	nodo<T>* pos = NULL;
+	nodo<T>* temp; 
+	nodo<T>* pos;
 	if (find(valor,pos))
 	{
-		if (head == head->next)
-		{
-			delete head;
-			head = NULL;
-		}
-		else if (pos == head && head->valor == valor)
+		if (!pos)
 		{
 			temp = head;
 			head = head->next;
-			pos->next = head;
-			delete temp;
 		}
 		else
 		{
 			temp = pos->next;
 			pos->next = temp->next;
-			delete temp;
 		}
+		delete temp;
 	}
 }
 
@@ -146,14 +128,23 @@ int main()
 {
 	//asi instancio un obj de la clase lista enlazada circular (LEC)
 	LEC<int> lec;
+	cout << "lista elazada circular vacia:" << endl;
 	lec.print();
+	cout << "anadiendo elementos:" << endl;
+	cout << "1" << endl;
 	lec.add(1);
-	lec.add(7);
-	lec.add(5);
-	lec.add(4);
-	lec.add(3);
 	lec.print();
-	lec.del(4);
+	cout << "7" << endl;
+	lec.add(7);
+	lec.print();
+	cout << "5" << endl;
+	lec.add(5);
+	lec.print();
+	cout << "eliminando elementos:" << endl;
+	lec.del(5);
+	lec.print();
+	cout << "destruimos:" << endl;
+	lec.~LEC();
 	lec.print();
 	return 0;
 }
